@@ -21,8 +21,8 @@
 :root {
   --background: var(--color-ink);
   --foreground: var(--color-bone);
-  --dot-alpha: 0.06;
-  --active-alpha: 0.08;
+  --dot-color: rgba(236, 237, 239, 0.06);
+  --active-tint: rgba(111, 191, 139, 0.08);
   color-scheme: dark;
 }
 
@@ -41,8 +41,8 @@
   --color-signal: #9a3e72;
   --color-signal-deep: #7a2f59;
   --color-active: #1f7a4d;
-  --dot-alpha: 0.05;
-  --active-alpha: 0.1;
+  --dot-color: rgba(27, 26, 23, 0.05);
+  --active-tint: rgba(31, 122, 77, 0.1);
   color-scheme: light;
 }
 
@@ -58,11 +58,7 @@ body {
   background-color: var(--color-ink);
   color: var(--color-bone);
   font-family: var(--font-body), system-ui, sans-serif;
-  background-image: radial-gradient(
-    circle at 1px 1px,
-    color-mix(in srgb, var(--color-bone) calc(var(--dot-alpha) * 100%), transparent) 1px,
-    transparent 0
-  );
+  background-image: radial-gradient(circle at 1px 1px, var(--dot-color) 1px, transparent 0);
   background-size: 28px 28px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -161,7 +157,7 @@ body {
   border-radius: 999px;
   border: 1px solid var(--color-line);
   color: var(--color-active);
-  background: color-mix(in srgb, var(--color-active) calc(var(--active-alpha) * 100%), transparent);
+  background: var(--active-tint);
 }
 
 .status-dot {
@@ -169,5 +165,5 @@ body {
   height: 6px;
   border-radius: 999px;
   background: currentColor;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-active) 18%, transparent);
+  box-shadow: 0 0 0 3px var(--active-tint);
 }
