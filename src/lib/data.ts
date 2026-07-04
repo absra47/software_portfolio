@@ -13,8 +13,8 @@ export const profile = {
   tagline:
     "Applying strong analytical skills to identify issues and implement efficient software solutions — with a growing focus on ERP systems built on Odoo.",
   summary:
-    "I'm a software developer based in Addis Ababa, Ethiopia, with a growing specialization in Enterprise Resource Planning systems — particularly Odoo. I've moved from building full-stack web applications to engineering compliance-critical ERP integrations, including a government e-invoicing system now running bulk financial documents in production. I care about elegant solutions to complex problems, and about building performant, accessible software that solves real operational challenges — not just technical ones.",
-  currentlyLine: "Currently working as a Mid-Level ERP Developer at Pitrontech.",
+    "I'm a software developer based in Addis Ababa, Ethiopia, specializing in ERP customization and Odoo development, with strong Python, SQL, and full-stack skills. I've delivered compliance-critical integrations — including government e-invoicing (EIMS) automation within Odoo — and I care about translating complex regulatory and operational requirements into reliable, audit-ready systems across the full customization stack.",
+  currentlyLine: "Currently working as a Mid-Level ERP Developer at Pitron Tech Solutions.",
   availability: "Open to ERP & full-stack work",
 };
 
@@ -71,9 +71,11 @@ export const skillGroups = [
   {
     category: "ERP Industries Served",
     skills: [
+      "Food & Retail",
+      "Construction",
       "Pharmaceutical & Manufacturing",
-      "Government & Public Sector",
-      "Financial & Tax Compliance",
+      "HR & Payroll Consulting",
+      "Government & Tax Compliance",
     ],
   },
   {
@@ -108,29 +110,30 @@ export type ExperienceEntry = {
 export const experience: ExperienceEntry[] = [
   {
     role: "Mid-Level ERP Developer",
-    company: "Pitrontech",
+    company: "Pitron Tech Solutions",
+    subtitle: "Odoo 18 Community · Multi-Client ERP Delivery",
     start: "Feb 2026",
     end: "Present",
     active: true,
     location: "Addis Ababa, Ethiopia",
     bullets: [
-      "Developing and customizing Odoo ERP modules for clients across multiple industries, from backend data models to user-facing views.",
-      "Owning feature delivery end-to-end — functional analysis, implementation, testing, and deployment — as a mid-level contributor on the ERP team.",
-      "Carrying forward experience with compliance-style integrations and API-driven automation within Odoo from prior roles.",
+      "Design and ship custom Odoo 18 Community modules across multiple client deployments — models, views, security, OWL front-end, QWeb reports, and CI/CD — including leading a multi-branch inventory management system replacing legacy software for a food & retail client.",
+      "Built an OWL-based executive dashboard (pitron_erp_dashboard) with a scheduled cron-sync architecture that ingests external Performance Tracking and Cash Collection APIs into normalized snapshot models, delivering fast daily-aggregated reporting without live API calls in the UI.",
+      "Developed a Chapa payout webhook receiver with audit logging, idempotency via transaction reference, and automated draft vendor-bill creation, plus a ZKTeco biometric attendance integration.",
+      "Implemented Ethiopian pension-law HR/payroll enhancements and an ERCA e-invoicing branch-registration module, and kept production instances healthy through production-safe SQL diagnostics — resolving module version conflicts and missing database constraints.",
     ],
   },
   {
     role: "ERP Developer",
     company: "Ashewa Technologies",
-    subtitle: "EIMS API & Odoo Compliance Integration",
+    subtitle: "Construction ERP Implementation (Odoo) · HR Consulting",
     start: "Jul 2025",
     end: "Feb 2026",
     location: "Addis Ababa, Ethiopia",
     bullets: [
-      "Engineered and implemented the EIMS API integration within Odoo for mandatory government clearance across Invoice, Credit Note, and Debit Note documents, storing the Invoice Registration Number and QR code in Odoo upon validation.",
-      "Developed tax-compliant Sales Receipt generation linked to EIMS, and built the process for Withholding Tax Receipts within Odoo's Accounting module.",
-      "Linked EIMS validation data to Odoo's core journal entries and financial reports, keeping accounting and invoicing records synchronized with official EIMS status for simplified audits.",
-      "Implemented synchronous and asynchronous (callback) API processing for high-volume bulk document registration and cancellation without impacting Odoo's performance.",
+      "Implemented and customized Odoo modules for construction-industry clients — spanning project management, procurement, inventory, and cost tracking — tailoring workflows to construction project lifecycles, site operations, and multi-project reporting.",
+      "Provided HR consultancy and configured Odoo HR and Payroll modules to client policies — covering the employee lifecycle, leave, attendance, and payroll runs — advising on process design, statutory compliance, and system adoption.",
+      "Integrated the EIMS API for government e-invoicing and tax clearance (IRN and QR-code capture), linking validation data to Odoo's accounting records for audit-ready, traceable financial reporting.",
     ],
   },
   {
