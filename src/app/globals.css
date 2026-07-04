@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0b0d10;
+  --color-panel: #15181d;
+  --color-panel-2: #191c22;
+  --color-line: #262a31;
+  --color-bone: #ecedef;
+  --color-mist: #8a8f98;
+  --color-signal: #c97aa8;
+  --color-signal-deep: #8c5a78;
+  --color-active: #6fbf8b;
+}
+
+@theme inline {
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-plex-sans);
+  --font-mono: var(--font-plex-mono);
+}
+
+:root {
+  --background: var(--color-ink);
+  --foreground: var(--color-bone);
+  --dot-alpha: 0.06;
+  --active-alpha: 0.08;
+  color-scheme: dark;
+}
+
+/*
+  Dark mode = "terminal": near-black system UI.
+  Light mode = "paper ledger": warm off-white, like a printed invoice.
+  Both lean into the same ERP record/field motif, just inverted.
+*/
+[data-theme="light"] {
+  --color-ink: #f6f2ea;
+  --color-panel: #ffffff;
+  --color-panel-2: #f1ece2;
+  --color-line: #e1dacb;
+  --color-bone: #1b1a17;
+  --color-mist: #6b6559;
+  --color-signal: #9a3e72;
+  --color-signal-deep: #7a2f59;
+  --color-active: #1f7a4d;
+  --dot-alpha: 0.05;
+  --active-alpha: 0.1;
+  color-scheme: light;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-body), system-ui, sans-serif;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    color-mix(in srgb, var(--color-bone) calc(var(--dot-alpha) * 100%), transparent) 1px,
+    transparent 0
+  );
+  background-size: 28px 28px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--color-signal);
+}
+
+.field-strip {
+  display: grid;
+  border: 1px solid var(--color-line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--color-panel);
+}
+
+.field-cell {
+  padding: 0.9rem 1.1rem;
+  border-left: 1px solid var(--color-line);
+}
+
+.field-cell:first-child {
+  border-left: none;
+}
+
+@media (max-width: 639px) {
+  .field-cell:nth-child(odd) {
+    border-left: none;
+  }
+  .field-cell:nth-child(n + 3) {
+    border-top: 1px solid var(--color-line);
+  }
+}
+
+.field-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-mist);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.field-value {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.85rem;
+  color: var(--color-bone);
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-line);
+  color: var(--color-active);
+  background: color-mix(in srgb, var(--color-active) calc(var(--active-alpha) * 100%), transparent);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-active) 18%, transparent);
+}
